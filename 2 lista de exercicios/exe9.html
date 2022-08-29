@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head> 
+        <meta charset="UTF-8">      <!--TAGS com marcação-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link href="meu.css" rel="stylesheet"?> 
+        <title>Exercicio 9</title>
+    </head>     
+    <body>
+        <section>
+            <h3> Exercício 9</h3>     <!--h cabeçalho o numero é o nivel  mancam titulo-->
+                <div>
+                    Informe seu saldo médio <input type="number" id="saldoMed"/>
+                </div>
+                <div>
+                    <button type="button" onClick="calcular()"> Enviar </button>
+                </div>
+                <div>
+                    <p id="credito"/>
+                    <p id="x"/>
+                </div>    
+        </section>
+    
+    </body>
+</html>
+
+
+<script>
+    function calcular()
+    {
+        let saldoMed = Number(document.getElementById("saldoMed").value)
+        let credito
+
+        if(saldoMed > 400){
+            credito = (saldoMed/100) * 30
+        }
+        else if (saldoMed <= 400, saldoMed > 300){
+            credito = (saldoMed/100) * 25
+        }
+        else if(saldoMed <= 300, saldoMed > 200){
+            credito = (saldoMed/100) * 20
+        }
+        else if(saldoMed <= 200){
+            credito = (saldoMed/100) * 10
+        }
+        document.getElementById("credito").innerHTML = ` O valor do crédito é de ${credito.toFixed(2)}`
+        document.getElementById("x").innerHTML = ` O saldo médio é  ${saldoMed.toFixed(2)}`
+
+    }
+</script>

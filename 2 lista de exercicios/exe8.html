@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head> 
+        <meta charset="UTF-8">      <!--TAGS com marcação-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link href="meu.css" rel="stylesheet"?> 
+        <title>Exercicio 8</title>
+    </head>     
+    <body>
+        <section>
+            <h3> Exercício 8</h3>     <!--h cabeçalho o numero é o nivel  mancam titulo-->
+                <div>
+                    Informe seu salário <input type="number" id="sal"/>
+                </div>
+                <div>
+                    <button type="button" onClick="calcular()"> Enviar </button>
+                </div>
+                <div>
+                    <p id="salnovo"/>
+                </div>    
+        </section>
+    
+    </body>
+</html>
+
+
+<script>
+    function calcular()
+    {
+        let sal = Number(document.getElementById("sal").value)
+        let salnovo
+
+        if(sal <= 300){
+            salnovo = sal + ((sal/100) * 35)
+            document.getElementById("salnovo").innerHTML = ` O seu novo salário é de ${salnovo.toFixed(2)}`
+        }else if (sal > 300) {
+            salnovo = sal + ((sal/100) * 15)
+            document.getElementById("salnovo").innerHTML = ` O seu novo salário com aumento de 15% é  ${salnovo.toFixed(2)}`
+        } 
+
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head> 
+        <meta charset="UTF-8">      <!--TAGS com marcação-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link href="meu.css" rel="stylesheet"?> 
+        <title>Exercicio 10</title>
+    </head>     
+    <body>
+        <section>
+            <h3> Exercício 10</h3>     <!--h cabeçalho o numero é o nivel  mancam titulo-->
+                <div>
+                    Informe o custo de fábrica do carro <input type="number" id="custo"/>
+                </div>
+                <div>
+                    <button type="button" onClick="calcular()"> Enviar </button>
+                </div>
+                <div>
+                    <p id="preco"/>
+                </div>    
+        </section>
+    
+    </body>
+</html>
+
+
+<script>
+    function calcular()
+    {
+        let custo = Number(document.getElementById("custo").value)
+        let imposto 
+        let distribuidor 
+
+        if(custo <= 12000){
+            imposto = 0
+            distribuidor = (custo/100) * 5
+        }
+        else if (custo > 12000, custo <= 25000){
+            imposto = (custo/100) * 15
+            distribuidor = (custo/100) * 10
+        }
+        else if(custo > 25000){
+            imposto = (custo/100) * 20
+            distribuidor = (custo/100) * 15
+        }
+        let preco = custo + distribuidor + imposto
+
+        document.getElementById("preco").innerHTML = ` O preço ao consumidor é de ${preco.toFixed(2)}`
+
+    }
+</script>

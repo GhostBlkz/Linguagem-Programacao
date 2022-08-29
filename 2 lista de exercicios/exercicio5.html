@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 5</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 5</h3>
+         <div>
+            Informe o primeiro numero <input type="number" id="n1"/>
+         </div>
+         <div>
+            Informe o segundo numero <input type="number" id="n2"/>
+         </div>
+         <div>
+            Informe um valor de 1-4 (media - x /) <input type="number" id="n3"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+
+      </section>
+   </body>
+   <style>
+      body {
+         background-color: bisque;
+      }
+      div {
+         margin-bottom: 20px;
+      }
+      section {
+         border-radius: 25px;
+         background-color: antiquewhite;
+         padding: 15px; 
+         margin: 15px;
+         width: 600px; 
+         margin: auto; 
+         margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let n1 = Number (document.getElementById("n1").value)
+       let n2 = Number (document.getElementById("n2").value)
+       let sinal = Number (document.getElementById("n3").value)
+       let maior
+       let menor
+
+       let erro = false //assumo que não temos erro
+
+       if (sinal == 1) {
+        document.getElementById("resul").innerHTML = `A media é ${(n1+n2)/2}`
+       }
+       else if (sinal == 2) {
+        if (n1 >= n2){
+            maior = n1
+            menor = n2
+            document.getElementById("resul").innerHTML = `O maior - menor é ${maior - menor}`
+        }
+        else {
+            maior = n2
+            menor = n1
+            document.getElementById("resul").innerHTML = `O maior - menor é ${maior - menor}`
+        }
+        
+       }
+       else if (sinal == 3) {
+        document.getElementById("resul").innerHTML = `O produto é  ${n1*n2}`
+       }
+       else if (sinal == 4) {
+        let divisao = n1 / n2
+        if ( n2 == 0) {
+            document.getElementById("resul").innerHTML = `Não existe divisão por 0`
+        }
+        else {
+            document.getElementById("resul").innerHTML = divisao
+        }
+       }
+
+       else {
+        erro = true
+       }
+       if (erro) {
+          document.getElementById("resul").innerHTML =`Erro no Programa Digite outro número !!!`
+       }
+    
+    }
+   </script>
+</html>
