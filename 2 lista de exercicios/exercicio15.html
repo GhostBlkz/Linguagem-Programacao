@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 5</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 5</h3>
+         <div>
+            Informe o Investimento <input type="number" id="n1"/>
+         </div>
+         <div>
+            Informe 1 - para poupança 2 - para renda fixa <input type = "number" id = "n2"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+
+      </section>
+   </body>
+   <style>
+      body {
+         background-color: bisque;
+         background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-ficcao-cientifica-futurista-moderno_35913-2150.jpg?w=2000);
+      }
+      div {
+         margin-bottom: 20px;
+      }
+      section {
+         border-radius: 25px;
+         background-color: antiquewhite;
+         padding: 15px; 
+         margin: 15px;
+         width: 600px; 
+         margin: auto; 
+         margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let n1 = Number (document.getElementById("n1").value)
+       let sinal = Number (document.getElementById("n2").value)
+       let erro = false
+      
+    
+       switch (sinal) {
+           case 1: document.getElementById("resul").innerHTML = `o valor corrigido na poupança é ${(n1+(n1*0.03)).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}`
+           break;
+
+           case 2: document.getElementById("resul").innerHTML = `o valor corrigido no fundo de renda fixa é ${(n1+(n1*0.04)).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}`
+           break;
+
+           default: erro = true
+                    if (erro) {
+                        document.getElementById("resul").innerHTML = `Erro Digite outro numero!!`
+                    }
+       }   
+
+
+
+    }   
+
+      
+    
+    
+   </script>
+</html>
