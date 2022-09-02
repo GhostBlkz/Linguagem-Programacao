@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 25</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 25</h3>
+         <div>
+            Informe o Numero de Horas Extras: <input type="number" id="n1"/>
+         </div>
+         <div>
+            Informe o Numero de Horas Faltadas: <input type="number" id="n2"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+      </section>
+   </body>
+   <style>
+      body {
+      background-color: bisque;
+      }
+      div {
+      margin-bottom: 20px;
+      }
+      section {
+      background-color: antiquewhite;
+      padding: 15px; 
+      margin: 15px;
+      width: 600px; 
+      margin: auto; 
+      margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let h_extra = Number (document.getElementById("n1").value)
+       let h_falta = Number (document.getElementById("n2").value)
+       let H = (h_extra - (2/3 * h_falta)) * 60
+       let erro = false
+
+       if (H < 600) {
+        premio = 100
+       }
+       else if ( H >= 600, H < 1200) {
+        premio = 200
+       }
+       else if ( H >= 1200, H < 1800) {
+        premio = 300
+       }
+       else if ( H >= 1800, H < 2400) {
+        premio = 400
+       }
+       else if (H >= 2400) {
+        premio = 500
+       }
+       else {
+        erro = true
+       }
+       if (erro){
+        document.getElementById("resul").innerHTML = 'Erro'
+       }
+       document.getElementById("resul").innerHTML = `A premiação é de ${premio.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}`
+
+    }
+   </script>
+</html>

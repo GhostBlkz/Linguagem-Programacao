@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 12</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 12</h3>
+         <div>
+            Informe o Salário Bruto: <input type="number" id="n1"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+      </section>
+   </body>
+   <style>
+      body {
+      background-color: bisque;
+      }
+      div {
+      margin-bottom: 20px;
+      }
+      section {
+      background-color: antiquewhite;
+      padding: 15px; 
+      margin: 15px;
+      width: 600px; 
+      margin: auto; 
+      margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let n1 = Number (document.getElementById("n1").value)
+       let erro = false
+       if (n1 < 350) {
+        gratificação = 100
+       }
+       else if (n1 >= 350 , n1 < 600) {
+        gratificação = 75
+       }
+       else if (n1 >= 600 , n1 < 900) {
+        gratificação = 50
+       }
+       else if (n1 >= 900) {
+        gratificação = 35
+       }
+       else {
+        erro = true
+       }
+       if (erro) {
+        document.getElementById("resul").innerHTML = `Valor errado inserido`
+       }
+       let vr = (n1 + gratificação) - (n1*0.07)
+       document.getElementById("resul").innerHTML = `O valor a receber é ${vr.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}`
+
+    }
+   </script>
+</html>
