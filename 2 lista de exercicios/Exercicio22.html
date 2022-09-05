@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 22</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 22</h3>
+         <div>
+            Informe a Idade <input type="number" id="n1"/>
+         </div>
+         <div>
+            Informe o Peso <input type = "number" id = "n2"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+
+      </section>
+   </body>
+   <style>
+     body {
+         background-color: bisque;
+         
+      }
+      div {
+         margin-bottom: 20px;
+      }
+      section {
+         border-radius: 25px;
+         background-color: antiquewhite;
+         padding: 15px; 
+         margin: 15px;
+         width: 600px; 
+         margin: auto; 
+         margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let idade = Number (document.getElementById("n1").value)
+       let peso = Number (document.getElementById("n2").value)
+       let erro = false
+       let grupo
+
+       if (idade >=0, idade < 20) {
+           if (peso >=0 , peso < 60){
+               grupo = 9
+
+           }
+           else if (peso >= 60, peso <90){
+               grupo = 8
+           }
+           else if (peso > 90){
+               grupo = 7
+            }
+
+
+       }
+       else if (idade>=20, idade <= 50) {
+        if (peso >=0 , peso < 60){
+               grupo = 6
+
+           }
+           else if (peso >= 60, peso <90){
+               grupo = 5
+           }
+           else if (peso > 90){
+               grupo = 4
+            }
+
+       }
+       else if (idade > 50){
+        if (peso >=0 , peso < 60){
+               grupo = 3
+
+           }
+           else if (peso >= 60, peso <90){
+               grupo = 2
+           }
+           else if (peso > 90){
+               grupo = 1
+            }
+
+
+       }
+       else {
+           erro = true
+           if (erro){
+               document.getElementById("resul").innerHTML= 'Erro'
+           }
+       }
+       document.getElementById("resul").innerHTML =  `Voce pertence ao grupo ${grupo}`
+
+
+      
+    
+       
+
+
+    }   
+
+      
+    
+    
+   </script>
+</html>

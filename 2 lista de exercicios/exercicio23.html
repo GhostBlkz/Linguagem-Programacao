@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Exercicio 23</title>
+   </head>
+   <body>
+      <section>
+         <h3>Exercicio 23</h3>
+         <div>
+            Informe o Codigo do produto <input type="number" id="n1"/>
+         </div>
+         <div>
+            Informe a Quantidade <input type = "number" id = "n2"/>
+         </div>
+         <div>
+            <button type="button" onclick="calcular()">Enviar</button>
+         </div>
+         <div>
+            <p id="resul"/>
+         </div>
+
+      </section>
+   </body>
+   <style>
+     body {
+         background-color: bisque;
+         
+      }
+      div {
+         margin-bottom: 20px;
+      }
+      section {
+         border-radius: 25px;
+         background-color: antiquewhite;
+         padding: 15px; 
+         margin: 15px;
+         width: 600px; 
+         margin: auto; 
+         margin-top: 100px; 
+      }
+   </style>
+   <script>
+      function calcular() {
+       let cod = Number (document.getElementById("n1").value)
+       let quant = Number (document.getElementById("n2").value)
+       let preco, ptotal, desc, pf
+       let erro = false
+
+       if (cod >=1 && cod <= 10){
+           preco = 10  
+       }
+       else if (cod > 10 && cod <=20) {
+           preco = 15
+
+       }
+       else if (cod > 20 && cod <=30) {
+           preco = 20
+       }
+       else if (cod > 30 && cod <=40) {
+           preco = 30
+       }
+       else {
+           erro = true
+       }
+
+       if(!erro){
+        ptotal = quant * preco 
+       }
+       if (ptotal < 250){
+           desc = ptotal*0.05 
+       }
+       else if (ptotal >=250, ptotal < 500){
+           desc = ptotal*0.1
+       }
+       else if (ptotal >=500){
+           desc = ptotal*0.15
+       }
+       pf = ptotal - desc
+       if (erro){
+               document.getElementById("resul").innerHTML='erro'
+           }
+       else {
+        document.getElementById("resul").innerHTML= `O valor unitario ${preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })} </br>
+          O valor Total ${ptotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })} </br>
+          O valor do desconto ${desc.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })} </br>
+          O valor final ${pf.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}`
+       }    
+      
+    }   
+
+      
+    
+    
+   </script>
+</html>
