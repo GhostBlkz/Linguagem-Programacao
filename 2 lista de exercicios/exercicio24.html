@@ -56,8 +56,11 @@
       function calcular() {
       let preco = Number (document.getElementById("n1").value)
       let categoria = Number (document.getElementById("n2").value)
-      let situação = Number (document.getElementById("n3").value)
+      let situação = String (document.getElementById("n3").value)
       let erro = false
+      let imposto = Number
+      let classi = Number
+      let aumento = Number
 
       if (preco <= 25) {
         switch (categoria){
