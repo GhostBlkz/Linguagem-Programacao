@@ -1,4 +1,4 @@
-function calcular() {
+function calcularTabuada() {
     console.log('Funcionou')
 
     //com estrutura de repetição while
