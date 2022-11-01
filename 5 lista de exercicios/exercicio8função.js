@@ -1,5 +1,13 @@
-function exercicio8() {
+function exercicio8obj() {
     let vetor = []
+    criarObj(vetor)
+    criarIndice(vetor)
+    maiorEmenor(vetor)
+    percentualV(vetor)
+    mostra(vetor)
+
+}
+function criarObj() {
     for (let i = 0; i < 5; i++) {
         let objEstado = {
             nome: prompt(`Informe o nome do estado: `),
@@ -10,13 +18,14 @@ function exercicio8() {
             percentualVeiculos: 0,
             mediaAcidentes: 0
         }
-        vetor.push(objEstado)
-    }
-    //calcular indice de acidentes
+    }vetor[i].push(objEstado)
+}
+function criarIndice() {
     for (let i = 0; i < 5; i++) {
         vetor[i].indice = (vetor[i].acidentes / vetor[i].veiculos) * 100
     }
-    //calcular maior e menor indice
+}
+function maiorEmenor() {
     let maiorIndice = vetor[0].indice
     let menorIndice = vetor[0].indice
     let maiorNome = vetor[0].nome
@@ -32,20 +41,22 @@ function exercicio8() {
         }
 
     }
-    //calcular percentual de veiculos
+
+}
+function percentualV() {
     let somaVeiculos = 0
 
     for (let i = 0; i < 5; i++) {
-        somaVeiculos += vetor[i].veiculos   
+        somaVeiculos += vetor[i].veiculos
     }
 
     for (let i = 0; i < 5; i++) {
         vetor[i].percentualVeiculos = (vetor[i].veiculos / somaVeiculos) * 100
         vetor[i].mediaAcidentes = vetor[i].acidentes / vetor[i].cidades
     }
+}
+function mostra() {
     console.log(vetor)
     console.log(`Maior indice ${maiorIndice} do estado ${maiorNome}`)
     console.log(`Menor indice ${menorIndice} do estado ${menorNome}`)
-
-
 }
