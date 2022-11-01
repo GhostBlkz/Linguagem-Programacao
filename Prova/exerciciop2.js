@@ -4,9 +4,9 @@ function calcular2() {
     let pos = 0
     let vt = 0
     let erro = false
-    let andar = Number(document.getElementById("n3").value)
     let metragem = Number(document.getElementById("n1").value)
     let garagem = Number(document.getElementById("n2").value)
+    let andar = Number(document.getElementById("n3").value)
     let sol = Number(document.getElementById("n4").value)
 
     if (metragem >= 0 && metragem < 80) {
@@ -21,8 +21,6 @@ function calcular2() {
                 vb = 340000
                 break
         }
-
-
     }
     else if (metragem >= 80 && metragem < 120) {
         if (garagem == 1) {

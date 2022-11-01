@@ -1,122 +1,128 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <title>Exercicio 24</title>
-   </head>
-   <body>
-      <section>
-         <h3>Exercicio 24</h3>
-         <div>
-            Informe o preço <input type="number" id="n1"/>
-         </div>
-         <div>
-            Informe a categoria 
-            <select name="categoria" id="n2">
-                <option value="1">categoria 1</option>
-                <option value="2">categoria 2</option>
-                <option value="3">categoria 3</option>
-            </select>
-         </div>
-         <div>
-            Informe a situação 
-            <select name="situação" id="n3">
-                <option value="R">Refrigeração</option>
-                <option value="N">Sem Refrigeração</option>
-            </select>
-         </div>
-         <div>
-            <button type="button" onclick="calcular()">Enviar</button>
-         </div>
-         <div>
-            <p id="resul"/>
-         </div>
 
-      </section>
-   </body>
-   <style>
-      body {
-         background-color: bisque;
-         
-      }
-      div {
-         margin-bottom: 20px;
-      }
-      section {
-         border-radius: 25px;
-         background-color: antiquewhite;
-         padding: 15px; 
-         margin: 15px;
-         width: 600px; 
-         margin: auto; 
-         margin-top: 100px; 
-      }
-   </style>
-   <script>
-      function calcular() {
-      let preco = Number (document.getElementById("n1").value)
-      let categoria = Number (document.getElementById("n2").value)
-      let situação = String (document.getElementById("n3").value)
+<head>
+   <meta charset="UTF-8">
+   <title>Exercicio 24</title>
+</head>
+
+<body>
+   <section>
+      <h3>Exercicio 24</h3>
+      <div>
+         Informe o preço <input type="number" id="n1" />
+      </div>
+      <div>
+         Informe a categoria
+         <select name="categoria" id="n2">
+            <option value="1">categoria 1</option>
+            <option value="2">categoria 2</option>
+            <option value="3">categoria 3</option>
+         </select>
+      </div>
+      <div>
+         Informe a situação
+         <select name="situação" id="n3">
+            <option value="R">Refrigeração</option>
+            <option value="N">Sem Refrigeração</option>
+         </select>
+      </div>
+      <div>
+         <button type="button" onclick="calcular()">Enviar</button>
+      </div>
+      <div>
+         <p id="resul" />
+      </div>
+
+   </section>
+</body>
+<style>
+   body {
+      background-color: bisque;
+
+   }
+
+   div {
+      margin-bottom: 20px;
+   }
+
+   section {
+      border-radius: 25px;
+      background-color: antiquewhite;
+      padding: 15px;
+      margin: 15px;
+      width: 600px;
+      margin: auto;
+      margin-top: 100px;
+   }
+</style>
+<script>
+   function calcular() {
+      let preco = Number(document.getElementById("n1").value)
+      let categoria = Number(document.getElementById("n2").value)
+      let situação = String(document.getElementById("n3").value)
       let erro = false
       let imposto = Number
       let classi = Number
       let aumento = Number
 
       if (preco <= 25) {
-        switch (categoria){
-            case 1: aumento = preco*0.05
-                    imposto = preco*0.08
-            break;
+         switch (categoria) {
+            
+            case 1: aumento = preco * 0.05
+               imposto = preco * 0.08
+               break;
 
-            case 2: aumento = preco*0.08
-            if (situação == "R") {
-                imposto = preco*0.05
-            }
-            break;
+            case 2: aumento = preco * 0.08
+               if (situação == "R") {
+                  imposto = preco * 0.05
+               }
+               break;
 
-            case 3: aumento = preco*0.1
-                    imposto = preco*0.08
-            break;
-        }
-        
+            case 3: aumento = preco * 0.1
+               imposto = preco * 0.08
+               break;
+         }
+
       }
       else if (preco > 25) {
-        switch (categoria){
-            case 1 : aumento = preco*0.12
-            break;
+         switch (categoria) {
+            case 1: aumento = preco * 0.12
+               break;
 
-            case 2 : aumento = preco*0.15
-            if (situação == "R") {
-                imposto = preco*0.05
-            }
-            break;
+            case 2: aumento = preco * 0.15
+               if (situação == "R") {
+                  imposto = preco * 0.05
+               }
+               break;
 
-            case 3 : aumento = preco*0.18
-                     imposto = preco*0.08
-            break;
-        }
+            case 3: aumento = preco * 0.18
+               imposto = preco * 0.08
+               break;
+         }
       }
-      let novo_preco = (preco+aumento)-imposto
-      
-      if (novo_preco <=50){
-        classi = "Barato"
+      let novo_preco = (preco + aumento) - imposto
+
+      if (novo_preco <= 50) {
+         classi = "Barato"
       }
-      else if (novo_preco > 50 , novo_preco <= 120){
-        classi = "Normal"
+      else if (novo_preco > 50, novo_preco <= 120) {
+         classi = "Normal"
       }
       else if (novo_preco > 120) {
-        classi = "Caro"
+         classi = "Caro"
       }
       else {
-        erro = true
+         erro = true
 
       }
       if (erro) {
-        document.getElementById("resul").innerHTML = 'Erro'
+         document.getElementById("resul").innerHTML = 'Erro'
       }
-      document.getElementById("resul").innerHTML = `O novo preço é ${novo_preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'  })}
+      document.getElementById("resul").innerHTML = `O novo preço é ${novo_preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
        , e a classificação é ${classi}`
-    }   
-        
-   </script>
+   }
+
+</script>
+
 </html>

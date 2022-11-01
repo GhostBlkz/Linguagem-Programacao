@@ -9,16 +9,16 @@ function principal() {
     soma10(vetor)
     mostra(vetor)
 }
-function leitura() {
+function leitura(vetor) {
     for (let i = 0; i < 10; i++) {
         vetor[i] = i
     }
 }
-function soma10() {
+function soma10(vetor) {
     for (let i = 0; i < 10; i++) {
         vetor[i] += 10
     }
 }
-function mostra() {
+function mostra(vetor) {
     console.log(vetor)
 }
